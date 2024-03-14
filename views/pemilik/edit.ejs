@@ -20,8 +20,20 @@
     <div class="container">
         <form action="/alat_tangkap/update/<%= id %>" method="POST">
             <div class="mb-3">
-                <label for="nama_alat_tangkap" class="form-label">nama alat tangkap</label>
-                <input type="text" class="form-control" name="nama_alat_tangkap" value="<%- nama_alat_tangkap %>" required>
+                <label for="nama_pemilik" class="form-label">pemilik</label>
+                <input type="text" class="form-control" name="pemilik" value="<%- nama_pemilik %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama_alat_tangkap" class="form-label">alamat</label>
+                <input type="text" class="form-control" name="nama_alat_tangkap" value="<%- alamat %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="no_hp" class="form-label">no hp</label>
+                <input type="text" class="form-control" name="no_hp" value="<%- no_hp %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_alat_tangkap" class="form-label">nama alat tangkap</label>
+                <input type="text" class="form-control" name="nama_alat_tangkap" value="<%- id_alat_tangkap %>" required>
             </div>
 
             <div class="mb-3">
