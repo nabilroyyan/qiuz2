@@ -14,15 +14,15 @@ router.get("/",async function (req, res, next) {
 
 router.get("/create", function (req, res, next) {
   res.render("alat_tangkap/create", {
-    nama_alat_tangkap: "",
+    nama_alat: "",
   });
 });
 
 router.post("/store", async function (req, res, next) {
   try {
-    let { nama_alat_tangkap } = req.body;
+    let { nama_alat } = req.body;
     let Data = {
-      nama_alat_tangkap
+      nama_alat
       }
    await model_alat_tangkap.Store(Data);
           req.flash("success", "Berhasil memperbarui data!");
@@ -37,17 +37,17 @@ router.get("/edit/(:id)", async function (req, res, next) {
   let id = req.params.id;
   let rows = await model_alat_tangkap.getId(id);
   res.render('alat_tangkap/edit',{
-    id:            rows[0].id_alat_tangkap,
-    nama_alat_tangkap: rows[0].nama_alat_tangkap,
+    id:            rows[0].id_alat,
+    nama_alat: rows[0].nama_alat,
   })
 });
 
 router.post("/update/:id", async function (req, res, next) {
   try {
     let id = req.params.id;
-    let { nama_alat_tangkap } = req.body;
+    let { nama_alat } = req.body;
     let Data = {
-      nama_alat_tangkap,
+      nama_alat,
     }
     await model_alat_tangkap.update(id,Data);
     req.flash("success", "Berhasil memperbarui data!");

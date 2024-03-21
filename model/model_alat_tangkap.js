@@ -5,7 +5,7 @@ class model_alat_tangkap{
     static async getALL(){
         return new Promise((resolve, reject) => {
             connection.query(
-                "SELECT * FROM alat_tangkap ORDER BY id_alat_tangkap DESC",
+                "SELECT * FROM alat_tangkap ORDER BY id_alat DESC",
                 function (err, rows) {
                   if (err) {
                     reject(err);
@@ -34,7 +34,7 @@ class model_alat_tangkap{
     
     static async getId(id){
         return new Promise((resolve, reject) => {
-            connection.query('select * from alat_tangkap where id_alat_tangkap = ' + id , (err, rows) => {
+            connection.query('select * from alat_tangkap where id_alat = ' + id , (err, rows) => {
                 if (err){
                     reject(err);
                     console.log(err);
@@ -47,7 +47,7 @@ class model_alat_tangkap{
 
       static async update(id, data){
           return new Promise((resolve, reject) => {
-              connection.query('update alat_tangkap set ? where id_alat_tangkap =' + id, data, function(err, result){
+              connection.query('update alat_tangkap set ? where id_alat =' + id, data, function(err, result){
                   if (err){
                       reject(err);
                       console.log(err);
@@ -60,7 +60,7 @@ class model_alat_tangkap{
       
       static async delete(id, data){
           return new Promise((resolve, reject) => {
-              connection.query('delete from alat_tangkap where id_alat_tangkap =' + id, function(err, result){
+              connection.query('delete from alat_tangkap where id_alat =' + id, function(err, result){
                   if (err){
                       reject(err);
                   } else {

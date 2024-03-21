@@ -71,13 +71,13 @@
                         <% for(var i = 0; i < data.length; i++) { %>
                         <tr>
                             <th scope="row"><%= (i+1) %></th>
-                            <td><%= data[i].nama_alat_tangkap %></td>
+                            <td><%= data[i].nama_alat %></td>
                             <td>
-                                <a href="/alat_tangkap/edit/<%= data[i].id_alat_tangkap %>"
+                                <a href="/alat_tangkap/edit/<%= data[i].id_alat %>"
                                     class="btn btn-sm btn-warning">Edit</a>
                             </td>
                             <td>
-                                <a href="/alat_tangkap/delete/<%= data[i].id_alat_tangkap %>"
+                                <a href="/alat_tangkap/delete/<%= data[i].id_alat %>"
                                     class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>

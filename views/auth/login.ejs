@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5; /* Warna latar belakang */
+        }
+        .container {
+            width: 100%;
+            max-width: 400px; /* Lebar maksimum container */
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff; /* Warna latar belakang container */
+            border-radius: 10px; /* Membuat sudut container melengkung */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Efek bayangan */
+        }
+        .mb-3 {
+            margin-bottom: 15px; /* Jarak antara elemen dengan kelas mb-3 */
+        }
+        .form-label {
+            margin-bottom: 5px; /* Jarak antara label dan input */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Warna latar belakang tombol */
+            color: #fff; /* Warna teks tombol */
+            border: none;
+            padding: 10px 20px; /* Padding pada tombol */
+            border-radius: 5px; /* Melengkungkan sudut tombol */
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Warna latar belakang tombol saat dihover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="/log" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

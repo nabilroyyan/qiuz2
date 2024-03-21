@@ -5,12 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var flash = require("express-flash");
 var session = require("express-session");
+const MemoryStore = require('session-memory-store')(session);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var alat_tangkapRouter = require('./routes/alat_tangkap');
 var dpiRouter = require('./routes/dpi');
 var pemilikRouter = require('./routes/pemilik');
+var kapalRouter = require('./routes/kapal');
+const { strict } = require('assert');
 
 var app = express();
 
@@ -23,17 +26,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(
-  session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 60000,
-    },
-    store: new session.MemoryStore(),
-  })
-);
+app.use(session({
+   cookie:{
+    maxAge: 60000000000,
+    secure: false,
+    httpOnly: true,
+    sameSite: 'strict',
+    //domain: domainkkitananti.com',
+   },
+   store: new MemoryStore(),
+   saveUninitialized: true,
+   resave: false,
+   secret: 'secret' 
+  }));
 
 app.use(flash());
 
@@ -42,6 +47,7 @@ app.use('/users', usersRouter);
 app.use('/alat_tangkap', alat_tangkapRouter);
 app.use('/dpi', dpiRouter);
 app.use('/pemilik', pemilikRouter);
+app.use('/kapal', kapalRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
