@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+  <header>
+    <!-- Navbar atau judul bisa ditambahkan di sini -->
+  </header>
+
+  <main class="container">
+    <div class="row">
+      <div class="col">
+        <form action="/produk/store" method="POST" enctype="multipart/form-data">
+          <fieldset>
+            <legend>Input Produk</legend>
+            <div class="mb-3">
+              <label for="nama_produk" class="form-label">Nama Produk</label>
+              <input type="text" class="form-control" id="nama_produk" name="nama_produk">
+            </div>
+            <div class="mb-3">
+              <label for="harga_produk" class="form-label">Harga Produk</label>
+              <input type="text" class="form-control" id="harga_produk" name="harga_produk">
+            </div>
+            <div class="mb-3">
+              <label for="foto_produk" class="form-label">Foto Produk</label>
+              <input type="file" class="form-control" id="foto_produk" name="foto_produk">
+            </div>
+
+            <div class="mb-3">
+              <label for="id_kapal" class="form-label">Pemilik Kapal</label>
+              <select class="form-select" id="id_kapal" aria-label="Pilih kapal" name="id_kapal">
+                <option value="" selected disabled>Pilih Pemilik</option>
+                <% for(var i=0; i < data.length; i++){ %>
+                <option value="<%= data[i].id_kapal %>"><%= data[i].nama_kapal %></option>
+                <% } %>
+              </select>
+              <div class="invalid-feedback">Silakan pilih pemilik kapal.</div>
+            </div>
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-success">Simpan</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Footer atau informasi tambahan lainnya bisa ditambahkan di sini -->
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
